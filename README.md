@@ -18,9 +18,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla urna massa, molli
 ## :computer:	 Technologies and concepts covered
 
 - REST APIs
-- JWTs & refresh tokens
 - Node.js
-- TypeScript
 - MongoDB with Mongoose
 
 ***
