@@ -10,27 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     services:
       app:
-        image: lessalsn/simple-node-api-js:alpha
+        image: lessalsn/simple-api:alpha
         ports:
           - 3001:3000
     steps:
-      - name: Post new user
-        run : |
-          curl -X POST http://localhost:3001/api/user \
-          -H "Content-Type: application/json" \
-          -d '{"name":"Lessa","password":"123454567","passwordConfirmation":"123454567","email": "lessa@driven.com"}'
       - name: Get all users
         run :  curl http://localhost:3001/api/users
       - name: Get nodejs version
         run: node -v
       - name: Open Pull Request
         run : |
-          curl -X POST https://api.github.com/repos/${{ github.repository }}/pulls \
-          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-          --header 'content-type: application/json' \
-          -d '{"title":"Add new features","body":"it successfully passes all the tests","head":"release","base":"main"}'
-      - name: Add auto-merge labels
-        run: |
           curl -X POST https://api.github.com/repos/${{ github.repository }}/pulls \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \

@@ -1,9 +1,8 @@
-import mongoose from "mongoose";
-import 'dotenv/config'
-
+const mongoose = require('mongoose')
+require('dotenv').config()
 
 function connect(){   
-    return mongoose.connect(process.env.DATABASE_URI)
+    return mongoose.connect("mongodb+srv://lessalsn:88eb9394@cluster0.i4bxe.mongodb.net/?retryWrites=true&w=majority")
         .then(() => {
             console.log("Database connected successfully")
         })
@@ -13,4 +12,4 @@ function connect(){
         });
 }
 
-export default connect;
+module.exports = connect;
