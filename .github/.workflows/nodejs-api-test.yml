@@ -1,0 +1,17 @@
+name: Simple Nodejs API Test
+
+on: push
+
+jobs:
+  nodejs-api-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post new user
+        run : |
+          curl -X POST https://nodejs-app-alpha.herokuapp.com/user \
+          -H "Content-Type: application/json" \
+          -d '{"name":"Lessa","password":"123454567","passwordConfirmation":"123454567","email": "lessa@driven.com"}'
+        continue-on-error: true
+      - name: Get all users
+        run :  curl https://nodejs-app-alpha.herokuapp.com/users
+
