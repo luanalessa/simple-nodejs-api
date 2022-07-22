@@ -6,7 +6,7 @@ export default function router(app){
 
     app.get('/healthcheck', (req, res) => { res.send("Success!"); });
 
-    app.post('/user', validateRequest(createUserSchema), createUserHandler);
+    app.post('/user', createUserHandler);
     app.get('/users', getUsersHandler);
 
 }

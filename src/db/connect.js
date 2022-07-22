@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
-function connect(){
-    
-    return mongoose.connect("mongodb+srv://lessalsn:88eb9394@cluster0.i4bxe.mongodb.net/?retryWrites=true&w=majority")
+function connect(){   
+    return mongoose.connect(process.env.DATABASE_URI)
         .then(() => {
             console.log("Database connected successfully")
         })
