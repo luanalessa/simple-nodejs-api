@@ -14,4 +14,6 @@ jobs:
         continue-on-error: true
       - name: Get all users
         run :  curl https://nodejs-app-alpha.herokuapp.com/users
+      - name: Get nodejs version
+        run: node -v
 
