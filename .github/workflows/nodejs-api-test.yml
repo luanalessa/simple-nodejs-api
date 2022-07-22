@@ -1,41 +1,16 @@
-name: Simple Nodejs API Test
+name: Simple Nodejs API Test with Docker Image
 
 on: 
   push:
     branches:
-      - release
+      - docker-image
 
 jobs:
-  heroku-deploy-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Post new user
-        run : |
-          curl -X POST https://nodejs-app-alpha.herokuapp.com/user \
-          -H "Content-Type: application/json" \
-          -d '{"name":"Lessa","password":"123454567","passwordConfirmation":"123454567","email": "lessa@driven.com"}'
-      - name: Get all users
-        run :  curl https://nodejs-app-alpha.herokuapp.com/users
-      - name: Get nodejs version
-        run: node -v
-      - name: Open Pull Request
-        run : |
-          curl -X POST https://api.github.com/repos/${{ github.repository }}/pulls \
-          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-          --header 'content-type: application/json' \
-          -d '{"title":"Add new features","body":"it successfully passes all the tests","head":"release","base":"main"}'
-      - name: Add auto-merge labels
-        run: |
-          curl -X POST https://api.github.com/repos/${{ github.repository }}/pulls \
-          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-          --header 'content-type: application/json' \
-          -d '{"title":"Add new features","body":"it successfully passes all the tests","head":"release","base":"main"}'
-  
   docker-image-test:
     runs-on: ubuntu-latest
     services:
       app:
-        image: lessalsn/simple-node-api
+        image: lessalsn/simple-node-api-js:alpha
         ports:
           - 3001:3000
     steps:
@@ -60,12 +35,9 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
           -d '{"title":"Add new features","body":"it successfully passes all the tests","head":"release","base":"main"}'
+      
 
-
+    
   
-
-    
-   
-    
 
 
