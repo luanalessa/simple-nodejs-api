@@ -1,6 +1,6 @@
-import User from "../repositories/user.repository.js";
+const User = require("../repositories/user.repository.js");
 
-export async function createUser(input) {
+async function createUser(input) {
   try {
         return await User.create(input);
   } catch (e) {
@@ -8,10 +8,12 @@ export async function createUser(input) {
   }
 }
 
-export async function getUsers() {
+async function getUsers() {
     try {
         return await User.find();
     } catch (e) {
         throw new Error(e.message)
     }
 }
+
+module.export = { createUser, getUsers};

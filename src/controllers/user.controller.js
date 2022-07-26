@@ -1,6 +1,6 @@
-import { createUser, getUsers } from "../services/user.services.js";
+const { createUser, getUsers } = require('../services/user.services.js');
 
-export async function createUserHandler(req, res, next) {
+async function createUserHandler(req, res, next) {
   try {
     const user = await createUser(req.body);
 
@@ -10,7 +10,7 @@ export async function createUserHandler(req, res, next) {
   }
 }
 
-export async function getUsersHandler(req, res) {
+async function getUsersHandler(req, res) {
     try {
         const users = await getUsers();
 
@@ -20,3 +20,5 @@ export async function getUsersHandler(req, res) {
         
     }
 }
+
+module.export = { createUserHandler, getUsersHandler};

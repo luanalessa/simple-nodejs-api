@@ -1,6 +1,6 @@
-import { object, string, ref } from "yup";
+const { object, string, ref } = require("yup");
 
-export const createUserSchema = object({
+const createUserSchema = object({
   body: object({
     name: string().required("Name is required"),
     password: string()
@@ -16,3 +16,5 @@ export const createUserSchema = object({
       .required("Email is required"),
   }),
 });
+
+module.export = createUserSchema;

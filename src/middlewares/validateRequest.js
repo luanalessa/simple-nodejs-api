@@ -14,5 +14,4 @@ const validate = (schema) => async () => {
     }
   }
 };
-
-export default validate;
+module.export = validate;

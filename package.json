@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node src/index.js ",
-    "dev": "nodemon src/index.js"
+    "start": "node index.js ",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +16,7 @@
     "cors": "^2.8.5",
     "dayjs": "^1.11.3",
     "dotenv": "^16.0.1",
+    "esm": "^3.2.25",
     "express": "^4.18.1",
     "joi": "^17.6.0",
     "joi-extract-type": "^15.0.8",

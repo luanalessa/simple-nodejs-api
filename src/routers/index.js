@@ -1,12 +1,9 @@
-import { createUserHandler, getUsersHandler } from '../controllers/user.controller.js';
-import validateRequest from '../middlewares/validateRequest.js';
-import { createUserSchema } from '../schemas/user.schema.js';
+const user = require('../controllers/user.controller.js');
+const  Router  = require('express');
 
-export default function router(app){
+const router = Router();
 
-    app.get('/healthcheck', (req, res) => { res.send("Success!"); });
+router.post('/user', (req,res) => user.createUserHandler);
+router.get('/users', (req,res) => user.getUsersHandler);
 
-    app.post('/user', createUserHandler);
-    app.get('/users', getUsersHandler);
-
-}
+module.exports = router;
