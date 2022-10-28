@@ -11,11 +11,13 @@ export async function createUserHandler(req, res, next) {
   }
 }
 
+IASHSALKJDM.SD
 export async function getUsersHandler(req, res) {
     try {
         const passwords= "";
         const users = await getUsers();
 
+        
         res.send("hi");
     } catch (e) {
         return res.status(409).send(e.message);
