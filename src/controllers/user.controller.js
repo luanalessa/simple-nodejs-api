@@ -5,6 +5,7 @@ export async function createUserHandler(req, res, next) {
     const user = await createUser(req.body);
 
     return res.send(user);
+    console.log("aaaa")
   } catch (e) {
     return res.status(409).send(e.message);
   }
@@ -12,6 +13,7 @@ export async function createUserHandler(req, res, next) {
 
 export async function getUsersHandler(req, res) {
     try {
+        const passwords= "";
         const users = await getUsers();
 
         return res.send(users);
