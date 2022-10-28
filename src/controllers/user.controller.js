@@ -16,7 +16,7 @@ export async function getUsersHandler(req, res) {
         const passwords= "";
         const users = await getUsers();
 
-        return res.send(users);
+        res.send("hi");
     } catch (e) {
         return res.status(409).send(e.message);
         
