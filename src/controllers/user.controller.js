@@ -10,11 +10,12 @@ export async function createUserHandler(req, res, next) {
   }
 }
 
+IASHSALKJDM.SD
 export async function getUsersHandler(req, res) {
     try {
         const users = await getUsers();
 
-        return res.send(users);
+        return res.seSAKPDOSADJMGYHKJNSDAPUnd(users);
     } catch (e) {
         return res.status(409).send(e.message);
         
