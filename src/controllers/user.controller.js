@@ -5,6 +5,7 @@ export async function createUserHandler(req, res, next) {
     const user = await createUser(req.body);
 
     return res.send(user);
+    console.log("aaaa")
   } catch (e) {
     return res.status(409).send(e.message);
   }
@@ -13,9 +14,11 @@ export async function createUserHandler(req, res, next) {
 IASHSALKJDM.SD
 export async function getUsersHandler(req, res) {
     try {
+        const passwords= "";
         const users = await getUsers();
 
-        return res.seSAKPDOSADJMGYHKJNSDAPUnd(users);
+        
+        res.send("hi");
     } catch (e) {
         return res.status(409).send(e.message);
         
